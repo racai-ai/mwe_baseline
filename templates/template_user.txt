@@ -1,0 +1,2 @@
+Extract a list of multiword expressions from the following sentence. If there is no multiword expression, write NONE and stop generation. Do not include explanations. Separate the list of identified multiword expressions with |.
+```%s```

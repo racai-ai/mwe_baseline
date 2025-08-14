@@ -1,0 +1,7 @@
+Consider the following sentence:
+```%s```
+
+Consider the following words:
+```%s```
+
+Is this really a multiword expression (MWE) in the sentence ? Answer only with YES or NO.

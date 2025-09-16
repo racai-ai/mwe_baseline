@@ -1,0 +1,10 @@
+Multiword expressions are idiosyncratic interpretations that cross word boundaries.
+Named entities are not multiword expressions. 
+Task: You are an expert annotator for the PARSEME task. Extract multiword expressions (MWEs) from the sentence below. 
+Definition (apply all): 
+An MWE is a fixed or semi-fixed sequence of >=2 tokens whose meaning or usage is not freely compositional (idioms), or is a conventionalized unit (light-verb constructions, verb-particle constructions, fixed/prepositional phrases, lexicalized compounds). Exclude freely compositional phrases and generic collocations (e.g., "big house", "strong tea"), and exclude simple modifier+noun unless lexicalized. Exclude named entities (proper names) unless the expression is idiomatic (e.g., "Achilles' heel"). Keep exactly the surface form, preserving case, diacritics, apostrophes, and internal hyphens; drop trailing punctuation. 
+Named entities if {INCLUDE_NAMED_ENTITIES}==false. Free verb+object where verb is fully lexical (non-LVC). 
+Loose compositional Adj+N collocations. Productive numeric sequences unless conventionalized (policy {ALLOW_NUMPHRASE}).
+ Output format: If none found, output exactly: NONE. Otherwise, output only the MWEs separated by a single pipe character: MWE1|MWE2|...
+ Keep the original language and do not translate into English.
+ ```%s```

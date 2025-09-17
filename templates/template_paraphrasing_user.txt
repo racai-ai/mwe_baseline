@@ -1,0 +1,2 @@
+Rephrase the following sentence in the French language to remove multiwork expressions. Keep the same meaning without multiword expressions. Preserve as many words as possible. Do not provide explanations. Respond only with the rephrased sentence.
+```%s```

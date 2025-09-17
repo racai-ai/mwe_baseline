@@ -5,11 +5,11 @@
 
   <groupId>baseline</groupId>
   <artifactId>mwe</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.2-SNAPSHOT</version>
 
   <name>mwe</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>https://github.com/racai-ai/mwe_baseline</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -33,7 +33,7 @@
     <dependency>
       <groupId>com.github.pvf2005</groupId>
       <artifactId>genericaimodelclient</artifactId>
-      <version>0.0.4</version>
+      <version>0.0.5</version>
     </dependency>
 
     <dependency>

@@ -65,7 +65,7 @@ public class SimpleMWEParaphrasing {
     	
     	System.out.println(String.format("CSV_IN=%s\nCSV_OUT=%s\nEndpoint(s)=%s\nModel=%s\n",
     			json_in, csv_out,
-    			params.getString("endpoints"),model
+    			params.getString("endpoint"),model
     	));
     	
         GenericAIModelClient client[]=new GenericAIModelClient[endpoints.length];

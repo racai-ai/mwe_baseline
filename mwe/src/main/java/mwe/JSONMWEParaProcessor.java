@@ -30,7 +30,7 @@ public class JSONMWEParaProcessor extends Thread {
 			for(int i=0;i<this.json.length();i++) {
 				JSONObject ob=this.json.getJSONObject(i);
 				String text=ob.getString("raw_text");
-				int id=ob.getInt("id");
+				String id=ob.getString("source_sent_id");
 	        	
 	        	tmxBuffer.add(new TMXPair(text, Collections.emptyList(), new HashMap<String,String>(){{
 	        		put("id",""+id);

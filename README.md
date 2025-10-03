@@ -57,7 +57,7 @@ java -cp "mwe.jar:mwe_lib/*" mwe.CSV2MWEJSONParaphrase \
         "FR_pred.csv" "FR_pred.json"
 ```
 
-(optional) Convert input JSON to CSV
+(optional, THIS IS **NOT** NEEDED FOR THE SHARED TASK) Convert input JSON to CSV
 ```
 java -cp "mwe.jar:mwe_lib/*" mwe.JSONMWEPara2CSV EN.json EN.csv
 ```

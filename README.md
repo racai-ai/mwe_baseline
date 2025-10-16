@@ -17,6 +17,10 @@ This command will load the llama3.3 model in memory and will generate text corre
 
 The application runs on most recent hardware, even without GPUs. However, a GPU is strongly advised for running local models through Ollama. Consult the Ollama documentation for specific requirements (if you use Ollama).
 
+Example timings using a GTX1080 GPU with 8GB: 
+- Rephrasing for FR, 159 sentences took 153 min,
+- Detection for EN, 10 sentences took 4 min.
+
 
 ## 1. Task MWE Identification
 

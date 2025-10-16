@@ -13,7 +13,10 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
+import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+import com.opencsv.RFC4180ParserBuilder;
 
 import ro.racai.base.Sentence;
 import ro.racai.base.Token;
@@ -84,13 +87,18 @@ public class CSV2MWECUPT {
     			conllupInStr,csv,conllupOutStr
     	));
 
-		CSVReader csvIn=new CSVReader(new BufferedReader(new InputStreamReader(new FileInputStream(csv), Charset.forName("UTF-8"))));
-   		CONLLUPReader in=new CONLLUPReader(Paths.get(conllupInStr));
+		//CSVReader csvIn=new CSVReader(new BufferedReader(new InputStreamReader(new FileInputStream(csv), Charset.forName("UTF-8"))));
+		CSVReader csvIn=new CSVReaderBuilder(new BufferedReader(new InputStreamReader(new FileInputStream(csv), Charset.forName("UTF-8"))))
+         .withCSVParser(new RFC4180ParserBuilder().build())
+         .build();
+		
+		CONLLUPReader in=new CONLLUPReader(Paths.get(conllupInStr));
    		CONLLUPWriter out=new CONLLUPWriter(Paths.get(conllupOutStr), List.of("global.columns"), List.of("source_sent_id","text"), List.of("ID","FORM","LEMMA","UPOS","XPOS","FEATS","HEAD","DEPREL","DEPS","MISC","PARSEME:MWE"));
 		Sentence sentIn;
 		int lnum=0;
 		while((sentIn=in.readSentence())!=null) {
 			lnum++;
+			System.out.println("CSV LINE: "+lnum);
 			String []data=csvIn.readNext();
 			if(data==null || data.length!=2) {
 				System.out.println(String.format("ERROR: Invalid entry in CSV (line: %d)",lnum));

@@ -6,6 +6,18 @@ Baseline script for detecting MWEs with LLMs
 Check at the end for details about the different parameters.
 First download and extract a release package from the Releases page: https://github.com/racai-ai/mwe_baseline/releases
 
+## Prerequisites
+
+If you plan to use a local Ollama installation, make sure it is installed: https://ollama.com/download .
+Furthermore, you should download the desired model and load it in memory (even though the first call will try to load the model into memory, it is possible to receive a timeout if your hardware is not fast enough). This can be done using a command similar to the following:
+```
+ollama run llama3.3 Hello --keepalive 1d
+```
+This command will load the llama3.3 model in memory and will generate text corresponding to the prompt "Hello". The model will be kept in memory for 1 day, unless another model is loaded or a specific command is issued to remove the model.
+
+The application runs on most recent hardware, even without GPUs. However, a GPU is strongly advised for running local models through Ollama. Consult the Ollama documentation for specific requirements (if you use Ollama).
+
+
 ## 1. Task MWE Identification
 
 1.1. Assuming you have CUPT data, such as the PARSEME Shared Task data, first convert it to CSV:
@@ -25,7 +37,7 @@ java -cp "mwe.jar:mwe_lib/*" mwe.SimpleMWE \
    --template_sys=templates/template_system.txt \
    --template=templates/template_user.txt
 ```
-(Note: make sure you create appropriate templates for the system and user prompts; examples are given in the templates folder of this repo)
+(Note: make sure you create appropriate templates for the system and user prompts; examples are given in the templates folder of this repo; templates may require adjusting for each targeted language)
 
 1.3. Convert back to CUPT for the CUPT-based evaluation script (this step is required if you want to evaluate with the PARSEME evaluation script):
 ```
@@ -48,7 +60,7 @@ java -cp "mwe.jar:mwe_lib/*" mwe.SimpleMWEParaphrasing \
    --template_sys=templates/template_paraphrasing_system.txt \
    --template=templates/template_paraphrasing_user.txt
 ```
-(Note: make sure you create appropriate templates for the system and user prompts; examples are given in the templates folder of this repo)
+(Note: make sure you create appropriate templates for the system and user prompts; examples are given in the templates folder of this repo; the templates may require adjustment for each targeted language)
 
 
 2.2. Convert output to JSON

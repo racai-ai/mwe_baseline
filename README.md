@@ -49,6 +49,11 @@ java -cp "mwe.jar:mwe_lib/*" mwe.CSV2MWECUPT EN/test.cupt EN_predictions.csv EN_
 ```
 (Note: the original CUPT file is needed for the tokenization; any MWE annotations in this file are ignored)
 
+For Japanese we use a separate conversion script [scripts/mwe_csv2cupt_JA.py](scripts/mwe_csv2cupt_JA.py) :
+```
+python annotate_many_jp_mwe.py input.csv input.blind.cupt output.cupt --encoding utf-8 --csv-has-header
+```
+
 ## 2. Task MWE paraphrasing
 
 2.1. Run paraphrasing
